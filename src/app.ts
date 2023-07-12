@@ -1,5 +1,9 @@
 console.log("testing test")
 
+// Can create an 'abstract class' by simply adding the key word abstract before the
+//delaraction of a new class. These classes can't be instantiated directly, and are
+//used for solely for inheritance
+
 class Department {
     //properties by default public access
     public name: string;
@@ -18,6 +22,13 @@ class Department {
         this.location = location;
     }
     //method
+
+    //creating a static method that we can use without creating an instance of the class
+    static createEmployee(name:string){
+        return {name: name}
+    }
+
+
     //setting this: Department, makes it so this method can only be called on an instance of the class
     describe(this: Department) {
         console.log('Department: ' + this.name)
@@ -32,6 +43,12 @@ class Department {
         console.log(this.employees);
     }
 }
+
+//calling our static method
+const newEmployee = Department.createEmployee('Dylan');
+console.log(newEmployee);
+
+
 
 const accounting = new Department('Accounting', 1, 'Atlanta');
 

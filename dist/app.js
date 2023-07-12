@@ -7,6 +7,9 @@ class Department {
         this.name = n;
         this.location = location;
     }
+    static createEmployee(name) {
+        return { name: name };
+    }
     describe() {
         console.log('Department: ' + this.name);
     }
@@ -18,6 +21,8 @@ class Department {
         console.log(this.employees);
     }
 }
+const newEmployee = Department.createEmployee('Dylan');
+console.log(newEmployee);
 const accounting = new Department('Accounting', 1, 'Atlanta');
 console.log(accounting);
 accounting.addEmployee('Dylan');
